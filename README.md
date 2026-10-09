@@ -1,8 +1,6 @@
 # SIPs
 
-The repository for Stellarium Improvement Proposals
-
-# Stellarium Improvement Proposal Guide
+The repository for Stellarium Improvement Proposals.
 
 ## What is a Stellarium Improvement Proposal (SIP)
 
@@ -24,4 +22,4 @@ Once it is ready for review, add the `ready for review` label and post in the [i
 
 ## AI Use
 
-AI can be used to help write SIPs, but be careful that the guide is human readable. You may want to reformat “AI-isms” like em dashes.
+AI can be used to help write SIPs, but be careful that the guide is human readable. You will want to reformat “AI-isms” like em dashes.
