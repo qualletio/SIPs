@@ -10,7 +10,7 @@ A Stellarium Improvement Proposal, or SIPs for short, is a technical document th
 
 ## Notation
 
-SIPs should be named starting with “SIP” and the number of the proposal following logically from the last number.
+SIPs should be named starting with “SIP” and the number of the proposal following logically from the last number. The file name should start with the SIP number and a couple keywords for the SIP (like "SIP-2_monetization.md).
 
 ## Commenting on SIPs
 
