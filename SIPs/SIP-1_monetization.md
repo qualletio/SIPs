@@ -158,6 +158,7 @@ Unused money returns to the caller's available Stellarium balance when the reque
 
 ### 6.4 Execution and acceptance receipts
 
+```
 interface ExecutionReceiptV1 {
 
 receiptId: Hex;
@@ -191,6 +192,7 @@ executedAt: number;
 providerSignature: Hex;
 
 }
+```
 
 The receipt contains no request arguments or output. It is signed only after successful execution. The receipt must be submitted within 30 minutes of `executedAt`.
 
