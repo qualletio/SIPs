@@ -287,4 +287,4 @@ rendering com.example.Button@1 {
 }
 ```
 
-Different built-ins have their own modifiers, such as color, background color, border, height, width, etc.
+Different built-ins have their own modifiers, such as foreground color, background color, border, height, width, etc.
