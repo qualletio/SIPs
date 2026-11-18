@@ -232,12 +232,59 @@ rendering com.example.Text@1 {
 `TextField` renders an input text field.
 
 ```
-rendering com.example.Text@1 {
+rendering com.example.TextField@1 {
 
     fn doThing {}
 
     render {
-        TextField(placeholder: "Your text", action: () => { doThing() })
+        TextField(placeholder: "Your text", action: (text: string) => { doThing() })
     }
 }
 ```
+
+`Button` renders a button with an action.
+
+```
+rendering com.example.Button@1 {
+
+    fn doThing {}
+
+    render {
+        Button(label: "Your label", action: () => { doThing() })
+    }
+}
+```
+
+`Column` aligns all child items vertically.
+
+```
+rendering com.example.Button@1 {
+
+    fn doThing {}
+
+    render {
+        Column {
+            Text(str: "This is a button")
+            Button(label: "Your label", action: () => { doThing() })
+        }
+    }
+}
+```
+
+`Row` aligns all child items horizontally.
+
+```
+rendering com.example.Button@1 {
+
+    fn doThing {}
+
+    render {
+        Row {
+            Text(str: "This is a button")
+            Button(label: "Your label", action: () => { doThing() })
+        }
+    }
+}
+```
+
+Different built-ins have their own modifiers, such as color, background color, border, height, width, etc.
