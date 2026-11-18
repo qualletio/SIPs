@@ -288,3 +288,7 @@ rendering com.example.Button@1 {
 ```
 
 Different built-ins have their own modifiers, such as foreground color, background color, border, height, width, etc.
+
+## Rendering on the web
+
+Renderings will use https://ui.shadcn.com/ as a base theme, completely customizable through modifiers.
