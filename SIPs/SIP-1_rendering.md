@@ -40,7 +40,7 @@ Renderings are accessed by the rendering's contract address on a node:
 
 Because Renderings are native RequestScript code, they could also easily translate to iOS and Android native apps, or MCP apps for AI Agents.
 
-Renderings are a powerful way for AI agents to dynamically build full applications.
+Renderings are a powerful way for AI agents to dynamically build full applications quickly.
 
 ## Sign-In with Stellarium
 
