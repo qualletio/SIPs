@@ -22,10 +22,10 @@ rendering com.example.CountUp@1 {
 
     render {
         Column {
-            Text("Count: ${count}")
-                .color("blue")
+            Text(str: "Count: ${count}")
+                .color(of: "blue")
             
-            Button("Up", () => { increaseCount() })
+            Button(label: "Up", action: () => { increaseCount() })
         } 
     }
 }
@@ -59,12 +59,12 @@ rendering com.example.CountUp@1 {
 
     render {
         Column {
-            Text("Hello ${signIn.name}")
-                .fontSize(20)
-            Text("Count: ${count}")
-                .color("blue")
+            Text(str: "Hello ${signIn.name}")
+                .fontSize(size: 20)
+            Text(str: "Count: ${count}")
+                .color(of: "blue")
             
-            Button("Up", () => { increaseCount() })
+            Button(label: "Up", action: () => { increaseCount() })
         } 
     }
 }
@@ -92,7 +92,7 @@ rendering com.example.Login@1 {
     var loggedIn = false
 
     fn checkLogin() {
-        const authResult = auth.checkLogin(username, password)
+        const authResult = auth.checkLogin(username: username, password: password)
         if (authResult.value != null) {
             loggedIn = authResult.value.loggedIn
         }
@@ -101,13 +101,13 @@ rendering com.example.Login@1 {
     render {
         Column {
             if (loggedIn) {
-                Text("Hello ${username}")
+                Text(str: "Hello ${username}")
             } else {
-                TextField("Enter Username", (usernameInput: string) => { username = usernameInput })
-                TextField("Enter Password", (passwordInput: string) => { password = passwordInput })
+                TextField(placeholder: "Enter Username", action: (usernameInput: string) => { username = usernameInput })
+                TextField(placeholder: "Enter Password", action: (passwordInput: string) => { password = passwordInput })
             }
             
-            Button("Log in", () => { checkLogin() })
+            Button(label: "Log in", action: () => { checkLogin() })
         } 
     }
 }
@@ -129,7 +129,7 @@ rendering com.example.Login@1 {
     fn checkLogin() {
         loading = true
 
-        const authResult = auth.checkLogin(username, password)
+        const authResult = auth.checkLogin(username: username, password: password)
         if (authResult.value != null) {
             loggedIn = authResult.value.loggedIn
         }
@@ -140,16 +140,16 @@ rendering com.example.Login@1 {
     render {
         Column {
             if (loggedIn) {
-                Text("Hello ${username}")
+                Text(str: "Hello ${username}")
             } else {
-                TextField("Enter Username", (usernameInput: string) => { username = usernameInput })
-                    .enabled(!loading)
-                TextField("Enter Password", (passwordInput: string) => { password = passwordInput })
-                    .enabled(!loading)
+                TextField(placeholder: "Enter Username", action: (usernameInput: string) => { username = usernameInput })
+                    .enabled(is: !loading)
+                TextField(placeholder: "Enter Password", action: (passwordInput: string) => { password = passwordInput })
+                    .enabled(is: !loading)
             }
             
-            Button("Log in", () => { checkLogin() })
-                .enabled(!loading)
+            Button(label: "Log in", action: () => { checkLogin() })
+                .enabled(is: !loading)
         } 
     }
 }
@@ -164,7 +164,7 @@ rendering com.example.Title@1 {
 
     render {
         Page
-            .title("This is the webpage's title")
+            .title(str: "This is the webpage's title")
     }
 }
 ```
@@ -177,7 +177,7 @@ rendering com.example.QueryParams@1 {
 
     render {
         Page
-            .title(queryParams.title)
+            .title(str: queryParams.title)
     }
 }
 ```
@@ -189,7 +189,55 @@ rendering com.example.Headers@1 {
 
     render {
         Page
-            .title(headers.contentType)
+            .title(str: headers.contentType)
+    }
+}
+```
+
+`Image` allows users to display an image. It is loaded from a url.
+
+```
+rendering com.example.Image@1 {
+
+    render {
+        Image(str: "https://i.scdn.co/image/ab67616d0000b273e27ec71c111b88de91a51600")
+            .height(of: "100%")
+            .width(of: "100%")
+    }
+}
+```
+
+`Link` renders a link that opens an url
+
+```
+rendering com.example.Link@1 {
+
+    render {
+        Link(to: "https://i.scdn.co/image/ab67616d0000b273e27ec71c111b88de91a51600")
+    }
+}
+```
+
+`Text` renders text.
+
+```
+rendering com.example.Text@1 {
+
+    render {
+        Text(str: "Your text")
+    }
+}
+```
+
+`TextField` renders an input text field.
+
+```
+rendering com.example.Text@1 {
+
+    fn doThing {}
+
+    render {
+        TextField(placeholder: "Your text", action: () => { doThing() })
     }
 }
 ```
