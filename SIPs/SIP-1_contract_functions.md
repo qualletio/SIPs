@@ -1,4 +1,4 @@
-# SIP-2 Contract Functions
+# SIP-1 Contract Functions
 
 Author: `Christopher Poulsen`
 Status: `draft`
@@ -23,7 +23,7 @@ Refactored workflow:
 ```
 contract com.example.MyContract@1 {
     pub fn doThing(data: string): string {
-        return "Do thing!
+        return "Do thing!"
     }
 }
 ```
@@ -35,7 +35,7 @@ contract com.example.MyContract@1 {
     var state myData = ""
 
     pub fn doThing(data: string): string {
-        return "Do thing!
+        return "Do thing!"
     }
 }
 ```

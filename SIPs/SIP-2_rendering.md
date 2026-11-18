@@ -1,4 +1,4 @@
-# SIP-1 Renderings
+# SIP-2 Renderings
 
 Author: `Christopher Poulsen`
 Status: `draft`
@@ -8,7 +8,7 @@ ___
 
 ## Summary
 
-Renderings are full-stack applications built entirely with RequestScript code.
+Renderings are full-stack applications built entirely with RequestScript code. Renderings have one reserved entrypoint: `pub fn render()`.
 
 Example:
 
@@ -20,7 +20,7 @@ rendering com.example.CountUp@1 {
         count += 1
     }
 
-    render {
+    pub fn render() {
         Column {
             Text(str: "Count: ${count}")
                 .color(of: "blue")
@@ -57,7 +57,7 @@ rendering com.example.CountUp@1 {
         count += 1
     }
 
-    render {
+    pub fn render() {
         Column {
             Text(str: "Hello ${signIn.name}")
                 .fontSize(size: 20)
@@ -98,7 +98,7 @@ rendering com.example.Login@1 {
         }
     }
 
-    render {
+    pub fn render() {
         Column {
             if (loggedIn) {
                 Text(str: "Hello ${username}")
@@ -137,7 +137,7 @@ rendering com.example.Login@1 {
         loading = false
     }
 
-    render {
+    pub fn render() {
         Column {
             if (loggedIn) {
                 Text(str: "Hello ${username}")
@@ -162,7 +162,7 @@ The `Page` object lets users set attributes of the webpage.
 ```
 rendering com.example.Title@1 {
 
-    render {
+    pub fn render() {
         Page
             .title(str: "This is the webpage's title")
     }
@@ -175,7 +175,7 @@ The `queryParams` object lets users see query params attached to the request.
 ```
 rendering com.example.QueryParams@1 {
 
-    render {
+    pub fn render() {
         Page
             .title(str: queryParams.title)
     }
@@ -187,7 +187,7 @@ The `headers` object lets users see headers attached to the request.
 ```
 rendering com.example.Headers@1 {
 
-    render {
+    pub fn render() {
         Page
             .title(str: headers.contentType)
     }
@@ -199,7 +199,7 @@ rendering com.example.Headers@1 {
 ```
 rendering com.example.Image@1 {
 
-    render {
+    pub fn render() {
         Image(str: "https://i.scdn.co/image/ab67616d0000b273e27ec71c111b88de91a51600")
             .height(of: "100%")
             .width(of: "100%")
@@ -212,7 +212,7 @@ rendering com.example.Image@1 {
 ```
 rendering com.example.Link@1 {
 
-    render {
+    pub fn render() {
         Link(to: "https://i.scdn.co/image/ab67616d0000b273e27ec71c111b88de91a51600")
     }
 }
@@ -223,7 +223,7 @@ rendering com.example.Link@1 {
 ```
 rendering com.example.Text@1 {
 
-    render {
+    pub fn render() {
         Text(str: "Your text")
     }
 }
@@ -236,7 +236,7 @@ rendering com.example.TextField@1 {
 
     fn doThing {}
 
-    render {
+    pub fn render() {
         TextField(placeholder: "Your text", action: (text: string) => { doThing() })
     }
 }
@@ -249,7 +249,7 @@ rendering com.example.Button@1 {
 
     fn doThing {}
 
-    render {
+    pub fn render() {
         Button(label: "Your label", action: () => { doThing() })
     }
 }
@@ -262,7 +262,7 @@ rendering com.example.Button@1 {
 
     fn doThing {}
 
-    render {
+    pub fn render() {
         Column {
             Text(str: "This is a button")
             Button(label: "Your label", action: () => { doThing() })
@@ -278,7 +278,7 @@ rendering com.example.Button@1 {
 
     fn doThing {}
 
-    render {
+    pub fn render() {
         Row {
             Text(str: "This is a button")
             Button(label: "Your label", action: () => { doThing() })
