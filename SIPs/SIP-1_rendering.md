@@ -109,3 +109,45 @@ rendering com.example.Login@1 {
     }
 }
 ```
+
+### Waiting for Resources and Contracts
+Sometimes Resources and Contracts can take a while to respond. Use the `protected` keyword to denote `loading` state.
+```
+rendering com.example.Login@1 {
+    // An example Auth Resource
+    const auth: com.example.Auth
+
+    protected var username = ""
+    protected var password = ""
+    protected var loading = false
+    
+    var loggedIn = false
+
+    fn checkLogin() {
+        loading = true
+
+        const authResult = auth.checkLogin(username, password)
+        if (authResult.value != null) {
+            loggedIn = authResult.value.loggedIn
+        }
+
+        loading = false
+    }
+
+    render {
+        Column {
+            if (loggedIn) {
+                Text("Hello ${username}")
+            } else {
+                TextField("Enter Username", (usernameInput: string) => { username = usernameInput })
+                    .enabled(!loading)
+                TextField("Enter Password", (passwordInput: string) => { password = passwordInput })
+                    .enabled(!loading)
+            }
+            
+            Button("Log in", () => { checkLogin() })
+                .enabled(!loading)
+        } 
+    }
+}
+```
