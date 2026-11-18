@@ -79,21 +79,32 @@ State functions the same as it does for contracts and is preserved across users.
 The `protected` keyword keeps a variable value between renderings, but is not saved to state.
 
 ```
-rendering com.example.CountUp@1 {
-    protected var count = 0
+rendering com.example.Login@1 {
+    // An example Auth Resource
+    const auth: com.example.Auth
 
-    fn increaseCount() {
-        count += 1
+    protected var username = ""
+    protected var password = ""
+
+    var loggedIn = false
+
+    fn checkLogin() {
+        const authResult = auth.checkLogin(username, password)
+        if (authResult.value != null) {
+            loggedIn = authResult.value.loggedIn
+        }
     }
 
     render {
         Column {
-            Text("Hello ${signIn.name}")
-                .fontSize(20)
-            Text("Count: ${count}")
-                .color("blue")
+            if (loggedIn) {
+                Text("Hello ${username}")
+            } else {
+                TextField("Enter Username", (usernameInput: string) => { username = usernameInput })
+                TextField("Enter Password", (passwordInput: string) => { password = passwordInput })
+            }
             
-            Button("Up", () => { increaseCount() })
+            Button("Log in", () => { checkLogin() })
         } 
     }
 }
