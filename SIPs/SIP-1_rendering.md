@@ -34,7 +34,7 @@ rendering com.example.CountUp@1 {
 Renderings use many built-in objects and features like Text, TextFields, Buttons, etc. to build up powerful functionality.
 Renderings can also call resources, contracts, and emit events like normal contracts can.
 
-Renderings are accessed by the renderings' contract address on a node:
+Renderings are accessed by the rendering's contract address on a node:
 
 `https://192.168.0.1:1411/v1/r/com/example/CountUp/1`
 
