@@ -77,3 +77,24 @@ The sign-in prompt is automatically fetched and displayed when the user navigate
 State functions the same as it does for contracts and is preserved across users. This is not ideal for sensitive fields like passwords. For this, renderings use the `protected` keyword.
 
 The `protected` keyword keeps a variable value between renderings, but is not saved to state.
+
+```
+rendering com.example.CountUp@1 {
+    protected var count = 0
+
+    fn increaseCount() {
+        count += 1
+    }
+
+    render {
+        Column {
+            Text("Hello ${signIn.name}")
+                .fontSize(20)
+            Text("Count: ${count}")
+                .color("blue")
+            
+            Button("Up", () => { increaseCount() })
+        } 
+    }
+}
+```
