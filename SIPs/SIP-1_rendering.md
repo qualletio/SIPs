@@ -70,6 +70,9 @@ rendering com.example.CountUp@1 {
 }
 ```
 
+## Display
+Renderings always display with a top bar that allows users to sign-in/sign-out and a link to the rendering's source code.
+
 The sign-in prompt is automatically fetched and displayed when the user navigates to the rendering, and is saved between sessions.
 
 ## Protected
@@ -148,6 +151,45 @@ rendering com.example.Login@1 {
             Button("Log in", () => { checkLogin() })
                 .enabled(!loading)
         } 
+    }
+}
+```
+
+## Built-ins
+
+The `Page` object lets users set attributes of the webpage.
+
+```
+rendering com.example.Title@1 {
+
+    render {
+        Page
+            .title("This is the webpage's title")
+    }
+}
+```
+
+The `queryParams` object lets users see query params attached to the request.
+
+`https://192.168.0.1:1411/v1/r/com/example/QueryParams/1?title=Test`
+```
+rendering com.example.QueryParams@1 {
+
+    render {
+        Page
+            .title(queryParams.title)
+    }
+}
+```
+
+The `headers` object lets users see headers attached to the request.
+
+```
+rendering com.example.Headers@1 {
+
+    render {
+        Page
+            .title(headers.contentType)
     }
 }
 ```
