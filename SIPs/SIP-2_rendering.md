@@ -213,7 +213,7 @@ rendering com.example.Image@1 {
 rendering com.example.Link@1 {
 
     pub fn render() {
-        Link(to: "https://i.scdn.co/image/ab67616d0000b273e27ec71c111b88de91a51600")
+        Link(to: "https://i.scdn.co/image/ab67616d0000b273e27ec71c111b88de91a51600", text: "Click here")
     }
 }
 ```
